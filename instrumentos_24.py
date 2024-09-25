@@ -20,6 +20,10 @@ class Flauta(InstrumentoMusical):
 class Bateria(InstrumentoMusical):
     def tocar(self):
         return f"{self.nombre} está tocando un ritmo de batería."
+class Xilofono(InstrumentoMusical):
+    def tocar(self):
+        return f"{self.nombre} está tocando una cansion."
+
 
 def gestionar_instrumentos(instrumentos):
     for instrumento in instrumentos:
@@ -31,7 +35,8 @@ def mostrar_menu():
     print("2. Ver y tocar Piano")
     print("3. Ver y tocar Flauta")
     print("4. Ver y tocar Batería")
-    print("5. Salir")
+    print("5. ver y tocar Xilofono")
+    print("6. salir")
 
 def main():
     # Crear instancias de instrumentos musicales
@@ -39,19 +44,21 @@ def main():
     piano = Piano("Piano de Cola")
     flauta = Flauta("Flauta Traversera")
     bateria = Bateria("Batería Acústica")
+    xilofono= Xilofono("Xilofono con teclas")
 
     instrumentos = {
         1: guitarra,
         2: piano,
         3: flauta,
-        4: bateria
+        4: bateria,
+        5: xilofono
     }
 
     while True:
         mostrar_menu()
         try:
             opcion = int(input("Seleccione una opción: "))
-            if opcion == 5:
+            if opcion == 6:
                 print("Saliendo del sistema.")
                 break
             elif opcion in instrumentos:
